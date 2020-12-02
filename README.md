@@ -8,9 +8,10 @@ And here's my take on it :)
 ### Day 1
 
 -  concept of yield generator.
-- 'with' keyword.
+- 'with' keyword, very convenient, makes handling files much shorter
+*with open(file, mode) as file_var*
 - hash tables.
-- working with data, always pay attention to complexity!:
+- always pay attention to complexity!:
 for a list of numbers of length *n*, my algorithm makes *n* sums for *n* times. 
 This is the case with my approach, resulting in complexity of *O(n^{2})*. 
 
