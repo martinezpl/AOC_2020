@@ -3,10 +3,10 @@ def getInput(inputfile):
     with open(inputfile, 'r') as f:
         for line in f:
             if line != '\n':
-                 data.append(eval(line.replace("\n", "")))
+                 data.append(eval(line.strip()))
     return data
 
-def sortAndSearch2(aData):
+def sortAndSearch(aData):
     aData.sort()
     i = 0
     j = len(aData) - 1
@@ -18,25 +18,11 @@ def sortAndSearch2(aData):
         else:
             j -= 1
 
-def sortAndSearch3(aData):
-    aData.sort()
-    i = 0
-    j = len(aData) - 1
-    k = len(aData) // 2
-    while True:
-        if aData[i] + aData[j] + aData[k] == 2020:
-            return aData[i], aData[j], aData[k]
-        if aData[i] < 2020 - aData[j]:
-            i += 1
-        else:
-            j -= 1
-        
 
 if __name__ == "__main__":
     
-    solution =  sortAndSearch3(getInput('input.txt'))
+    solution = sortAndSearch(getInput('input.txt'))
     
     print(solution)
-   # print(str(solution[0] * solution[1] * solution[2]))
 
     
