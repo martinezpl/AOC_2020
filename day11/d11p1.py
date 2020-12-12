@@ -2,9 +2,7 @@ import numpy as np
 
 with open('input.txt') as f:
     seat_map = np.array([])
-    a = 0
     for line in f:
-        a += 1
         l = []
         for ch in line.strip():
             l.append(ch)
@@ -14,21 +12,18 @@ with open('input.txt') as f:
             except:
                 seat_map = np.append(seat_map, l)
 
-print(seat_map)
 '''
 SIMULTANOUSLY FOR EACH!!!!!!!! <<< I wasted hours because of this fucking detail.
 If a seat is empty (L) and there are no occupied seats adjacent to it, the seat becomes occupied.
 If a seat is occupied (#) and four or more seats adjacent to it are also occupied, the seat becomes empty.
 Otherwise, the seat's state does not change.
 '''
-
 # Make borders by padding to avoid index out-of-range during iteration.
 seat_map = np.pad(seat_map, 1, constant_values='0')
-y_max = seat_map.shape[0] - 1
-x_max = seat_map.shape[1] - 1
 
-f = True
-# Analyze every seat within borders and apply the rules until nothing changes. 
+f = True # Flag
+
+# Analyze every seat within borders and THEN apply the rules. Repeat until nothing changes. 
 while f:
     f = False
     taken = 0
