@@ -267,15 +267,15 @@ arr = inp.split()
 for s in arr:
     pd = np.vstack((pd, list(s)))
 pd = np.delete(pd, 0, 0)
-pd = np.reshape(pd, (1, 1, 8, 8))
+pd = np.reshape(pd, (1, 1, 8, 8)) # << Introduced another dimension.
 pd = np.pad(pd, 1)
-print(pd)
+
 # Implement the concept of neighbors and harvesting their state.
 def get_neighbor_states(matrix, index):
     states = {}
     operations = (-1, +0, +1)
     # 81 is the quantity of possible variations - 3^4.
-    while len(states) < 81:
+    while len(states) < 81: # << More variations.
         i = 0
         for o1 in operations:
             for o2 in operations:
@@ -316,7 +316,7 @@ def harvest_cubes(matrix):
     record = {}
     matrix = expand_view(matrix)
     # considered coordinates:
-    c_timexd = range(1, matrix.shape[0] - 1)
+    c_timexd = range(1, matrix.shape[0] - 1) # << How do you even call it?
     c_layers = range(1, matrix.shape[1] - 1)
     c_columns = range(1, matrix.shape[3] - 1) 
     c_rows = range(1, matrix.shape[2] - 1)

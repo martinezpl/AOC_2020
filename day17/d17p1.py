@@ -161,7 +161,7 @@ for s in arr:
 pd = np.delete(pd, 0, 0)
 pd = np.reshape(pd, (1, 8, 8))
 pd = np.pad(pd, 1)
-print(pd)
+
 # Implement the concept of neighbors and harvesting their state.
 def get_neighbor_states(matrix, index):
     states = {}
@@ -195,7 +195,7 @@ def evaluate_state(state, neighbors):
         else:
             return '.'
 
-# Pocket dimension is infinite. Expand the 'vision' before a cycle. 
+# Pocket dimension is infinite. Expand 'vision' before a cycle. 
 def expand_view(matrix):
     matrix = matrix[1:-1, 1:-1, 1:-1]
     matrix = np.pad(matrix, ((1, 1),(1,1),(1,1)), constant_values = '.')
