@@ -54,5 +54,7 @@ for bag in bags:
             if bag not in indirectBags:
                 indirectBags.append(bag)
 
+print(len(bags))
+
 solution = len(indirectBags) + len(directBags)
 print(solution)

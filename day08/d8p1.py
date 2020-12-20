@@ -649,7 +649,6 @@ def execute(index, series):
                 pass
             elif cmd == 'jmp':
                 index += v
-
         else:
             return ac
 
